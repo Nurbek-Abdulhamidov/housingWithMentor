@@ -1,7 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with Webbrain Academy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is available with github [Create React App]("https://github.com/Nurbek-Abdulhamidov/housingWithMentor.git").
 
+# Can see the demo [Houzing](https://netlify.com/Nurbek-Abdulhamidov/housingWithMentor.git)
 ## Available Scripts
 
 In the project directory, you can run:
