@@ -1,7 +1,8 @@
 import React from "react";
 
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
+import Button from "../Generic/Button";
 import { Container, Link, Logo, Main, Section, Wrapper } from "./style";
 
 const Navbar = () => {
@@ -15,20 +16,24 @@ const Navbar = () => {
             <h4>Houzing</h4>
           </Section>
           <Section>
-            {navbar.map(({ title, path }, index) => {
+            {navbar.map(({ title, path, hidden }, index) => {
               return (
-                <Link
-                  className={({ isActive }) => isActive && "active"}
-                  key={index}
-                  to={path}
-                >
-                  {title}
-                </Link>
+                !hidden && (
+                  <Link
+                    className={({ isActive }) => isActive && "active"}
+                    key={index}
+                    to={path}
+                  >
+                    {title}
+                  </Link>
+                )
               );
             })}
           </Section>
           <Section>
-            <button>Sign in</button>
+            <Button onClick={() => navigate("/signin")} type="dark">
+              Sign in
+            </Button>
           </Section>
         </Wrapper>
       </Main>
