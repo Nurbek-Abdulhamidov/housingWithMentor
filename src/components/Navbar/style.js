@@ -8,14 +8,20 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
+export const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: var(--colorPrimary);
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--colorPrimary);
   color: white;
   padding: var(--padding);
   height: 64px;
+  width: 1440px;
   max-width: 1440px;
 `;
 
