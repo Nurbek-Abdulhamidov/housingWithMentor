@@ -5,7 +5,9 @@ const PropertiesContext = createContext();
 
 const PropertiesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, []);
-  return <PropertiesContext.Provider>{children}</PropertiesContext.Provider>;
+  return (
+    <PropertiesContext.Provider value="">{children}</PropertiesContext.Provider>
+  );
 };
 
 export default PropertiesProvider;
