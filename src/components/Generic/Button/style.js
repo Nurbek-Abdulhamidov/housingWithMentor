@@ -12,7 +12,7 @@ const getType = ({ type }) => {
       return {
         background: "transparent",
         border: "1px solid #E6E9EC",
-        color: "#E6E9EC",
+        color: "#0D263B",
       };
     case "primary":
       return {
@@ -36,11 +36,13 @@ export const Container = styled.button`
   border-radius: 2px;
   min-width: 120px;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
   height: ${({ height }) => (height ? `${height}px` : "44px")};
   width: ${({ width }) => (width ? `${width}px` : "130px")};
   cursor: pointer;
   ${getType}
   :active {
-    opacity: 0.7 ;
+    opacity: 0.7;
   }
 `;
