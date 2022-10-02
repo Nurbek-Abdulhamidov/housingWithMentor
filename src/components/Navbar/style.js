@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const Main = styled.div`
   display: flex;
   justify-content: center;
+  padding: var(--padding);
   background-color: var(--colorPrimary);
 `;
 
@@ -19,10 +20,9 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   color: white;
-  padding: var(--padding);
   height: 64px;
   width: 1440px;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 `;
 
 export const Section = styled.div`

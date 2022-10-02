@@ -1,12 +1,11 @@
 import React from "react";
-import { Button, Input } from "../Generic";
+import Carousel from "../Carousel";
 
 const Home = () => {
   return (
     <div>
       Home
-      <Input placeholder="Name" width="150" />
-      <Button>Click</Button>
+      <Carousel />
     </div>
   );
 };
