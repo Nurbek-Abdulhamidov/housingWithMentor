@@ -48,3 +48,13 @@ body {
   line-height: 20px;
   color: #696969;
 }
+
+.inline {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis " [..]";
+}
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}

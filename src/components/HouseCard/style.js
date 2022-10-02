@@ -9,14 +9,14 @@ import { ReactComponent as resize } from "../../assets/icons/resize.svg";
 export const Container = styled.div`
   width: 380px;
   height: 429px;
-  margin: 100px;
-
+  margin:10px 0 ;
   box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
 `;
 
 export const Img = styled.img`
   width: 100%;
   max-height: 220px;
+  min-height: 220px;
   margin-bottom: 24px;
 `;
 

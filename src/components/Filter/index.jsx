@@ -1,10 +1,16 @@
+import "antd/dist/antd.css";
 import { Dropdown } from "antd";
 import React, { useRef } from "react";
 import { Button, Input } from "../Generic";
 import { Container, Icons, MenuWrapper, Section } from "./style";
-import "antd/dist/antd.css";
+import { uzeReplace } from "../../hooks/useReplace";
+import { useNavigate, useLocation } from "react-router-dom";
+import useSearch from "../../hooks/useSearch";
 
 const Filter = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const query = useSearch();
   const countryRef = useRef();
   const regionRef = useRef();
   const cityRef = useRef();
@@ -17,14 +23,43 @@ const Filter = () => {
   const minPriceRef = useRef();
   const maxPriceRef = useRef();
 
+  console.log(query.get("region"));
+
+  const onChange = ({ target: { name, value } }) => {
+    navigate(`${location?.pathname}${uzeReplace(name, value)}`);
+  };
   const menu = (
     <MenuWrapper>
       <h2 className="subTitle">Address</h2>
       <Section>
-        <Input ref={countryRef} placeholder="Country" />
-        <Input ref={regionRef} placeholder="Region" />
-        <Input ref={cityRef} placeholder="City" />
-        <Input ref={zipRef} placeholder="Zip code" />
+        <Input
+          onChange={onChange}
+          defaultValue={query.get("country")}
+          name="country"
+          ref={countryRef}
+          placeholder="Country"
+        />
+        <Input
+          onChange={onChange}
+          defaultValue={query.get("region")}
+          name="region"
+          ref={regionRef}
+          placeholder="Region"
+        />
+        <Input
+          onChange={onChange}
+          defaultValue={query.get("city")}
+          name="city"
+          ref={cityRef}
+          placeholder="City"
+        />
+        <Input
+          onChange={onChange}
+          defaultValue={query.get("zip_code")}
+          name="zip_code"
+          ref={zipRef}
+          placeholder="Zip code"
+        />
       </Section>
       <h2 className="subTitle">Apartment info</h2>
       <Section>
