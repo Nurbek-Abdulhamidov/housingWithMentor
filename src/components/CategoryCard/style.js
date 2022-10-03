@@ -11,7 +11,7 @@ export const Container = styled.div`
   width: 100%;
   max-width: 280px;
   min-width: 230px;
-  max-height: 380px;
+  max-height: 420px;
   min-height: 350px;
   box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
   border-radius: 3px;

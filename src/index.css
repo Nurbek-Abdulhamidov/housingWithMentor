@@ -58,3 +58,8 @@ body {
 .overflow-ellipsis {
   text-overflow: ellipsis;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "../Carousel";
-import CategoryCard from "../CategoryCard";
+import Category from "../Category";
 import HouseCard from "../HouseCard";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <Carousel />
       <HouseCard />
-      <CategoryCard/>
+      <Category />
     </div>
   );
 };
