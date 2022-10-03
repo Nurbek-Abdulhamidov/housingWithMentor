@@ -23,8 +23,6 @@ const Filter = () => {
   const minPriceRef = useRef();
   const maxPriceRef = useRef();
 
-  console.log(query.get("region"));
-
   const onChange = ({ target: { name, value } }) => {
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
   };

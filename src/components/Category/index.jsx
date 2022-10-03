@@ -30,8 +30,9 @@ const GenCarousel = () => {
   return (
     <Container>
       <Slider {...settings}>
-        {data.map((value) => (
+        {data.map((value, index) => (
           <CategoryCard
+            key={index}
             onClick={() => navigate(`/properties?category=${value?.name}`)}
             data={value}
           />
