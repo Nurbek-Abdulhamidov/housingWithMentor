@@ -9,6 +9,9 @@ export const Container = styled.div`
   padding: var(--padding);
   padding-top: 10px;
   padding-bottom: 10px;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto ;
 `;
 
 export const Icons = styled.div``;

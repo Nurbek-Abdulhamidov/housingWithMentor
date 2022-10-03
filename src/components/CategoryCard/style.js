@@ -7,39 +7,50 @@ import { ReactComponent as love } from "../../assets/icons/love.svg";
 import { ReactComponent as resize } from "../../assets/icons/resize.svg";
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
-  max-width: 380px;
-  min-width: 330px;
-  height: 429px;
-  margin: 10px 0;
+  max-width: 280px;
+  min-width: 230px;
+  max-height: 380px;
+  min-height: 350px;
   box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
+  border-radius: 3px;
 `;
 
 export const Img = styled.img`
   width: 100%;
-  max-height: 220px;
-  min-height: 200px;
+  /* max-height: 220px;
+  min-height: 200px; */
 `;
 
 export const Content = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   display: flex;
-  flex-direction: ${({ footer }) => (footer ? "row" : "column")};
-  justify-content: ${({ footer }) => footer && "space-between"};
-  padding-top: 24px;
-  padding: 16px 20px;
-  background-color: #ffff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  color: #ffffff;
 `;
 
-export const Details = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 16px;
-`;
-
-Details.Item = styled.div`
-  display: flex;
-  flex-direction: ${({ row }) => (row ? "row" : "column")};
-  align-items: ${({ footer }) => !footer && "center"};
+export const Blur = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
 `;
 
 export const Icons = styled.div``;
@@ -61,9 +72,3 @@ Icons.Love = styled(love)`
   }
 `;
 Icons.Resize = styled(resize)``;
-
-export const Divider = styled.div`
-  background-color: #e6e9ec;
-  height: 1px;
-  width: 100%;
-`;
