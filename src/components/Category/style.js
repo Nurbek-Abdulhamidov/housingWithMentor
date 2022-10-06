@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as arrow } from "../../assets/icons/arrowTop.svg";
 
 export const Container = styled.div`
   display: flex;

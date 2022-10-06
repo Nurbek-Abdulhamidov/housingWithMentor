@@ -36,13 +36,13 @@ const Filter = () => {
       .then((res) => {
         setData(res?.data || []);
       });
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     fetch(`${url}/categories/list`)
       .then((res) => res.json())
       .then((res) => setData(res?.data || []));
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     let [d] = data?.filter(
