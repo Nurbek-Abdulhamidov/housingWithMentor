@@ -4,18 +4,11 @@ import { Arrow, Blur, Container, Content, Img } from "./style";
 import img1 from "../../assets/imgs/uy1.png";
 import img2 from "../../assets/imgs/uy2.png";
 
-// const contentSlide = {
-//   height: "160px",
-//   color: "#fff",
-//   lineHeight: "160px",
-//   textAlign: "center",
-//   background: "#364d79",
-// };
 
 const GenCarousel = () => {
   const slider = useRef();
   const onChange = (currentSlide) => {
-    console.log(currentSlide);
+    // console.log(currentSlide);
   };
 
   const onMove = ({
