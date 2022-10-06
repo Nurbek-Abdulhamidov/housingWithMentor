@@ -8,7 +8,6 @@ import img2 from "../../assets/imgs/uy2.png";
 const GenCarousel = () => {
   const slider = useRef();
   const onChange = (currentSlide) => {
-    // console.log(currentSlide);
   };
 
   const onMove = ({
