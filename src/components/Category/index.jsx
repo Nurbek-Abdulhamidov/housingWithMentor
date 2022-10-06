@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Container } from "./style";
 import CategoryCard from "../CategoryCard";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from "react-router-dom";
 
 const { REACT_APP_BASE_URL: url } = process.env;
@@ -33,7 +35,7 @@ const GenCarousel = () => {
         {data.map((value, index) => (
           <CategoryCard
             key={index}
-            onClick={() => navigate(`/properties?category=${value?.name}`)}
+            onClick={() => navigate(`/properties?category_id=${value?.id}`)}
             data={value}
           />
         ))}

@@ -1,13 +1,18 @@
 import "antd/dist/antd.css";
 import { Dropdown } from "antd";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Input } from "../Generic";
-import { Container, Icons, MenuWrapper, Section } from "./style";
+import { Container, Icons, MenuWrapper, Section, SelectAnt } from "./style";
 import { uzeReplace } from "../../hooks/useReplace";
 import { useNavigate, useLocation } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
+import { useEffect } from "react";
 
 const Filter = () => {
+  const [data, setData] = useState([]);
+  const [value, setValue] = useState("Select Category");
+
+  const { REACT_APP_BASE_URL: url } = process.env;
   const navigate = useNavigate();
   const location = useLocation();
   const query = useSearch();
@@ -17,14 +22,41 @@ const Filter = () => {
   const zipRef = useRef();
 
   const roomsRef = useRef();
-  const sortRef = useRef();
-  const sizeRef = useRef();
 
   const minPriceRef = useRef();
   const maxPriceRef = useRef();
 
   const onChange = ({ target: { name, value } }) => {
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
+  };
+
+  useEffect(() => {
+    fetch(`${url}/categories/list`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res?.data || []);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`${url}/categories/list`)
+      .then((res) => res.json())
+      .then((res) => setData(res?.data || []));
+  }, []);
+
+  useEffect(() => {
+    let [d] = data?.filter(
+      (ctg) => ctg.id === Number(query.get("category_id"))
+    );
+    d?.name && setValue(d?.name);
+    query.get("category_id") && setValue("Select Category");
+  }, [location?.search, data]);
+
+  const onChangeCategory = (category_id) => {
+    navigate(`/properties${uzeReplace("category_id", category_id)}`);
+  };
+  const onChangeSort = (sort) => {
+    navigate(`/properties${uzeReplace("sort", sort)}`);
   };
   const menu = (
     <MenuWrapper>
@@ -61,14 +93,43 @@ const Filter = () => {
       </Section>
       <h2 className="subTitle">Apartment info</h2>
       <Section>
-        <Input ref={roomsRef} placeholder="Price" />
-        <Input ref={sortRef} placeholder="Size" />
-        <Input ref={sizeRef} placeholder="Sort" />
+        <Input
+          name="room"
+          onChange={onChange}
+          ref={roomsRef}
+          placeholder="Rooms"
+        />
+        <SelectAnt
+          defaultValue={query.get("sort ") || "Select Sort"}
+          onChange={onChangeSort}
+        >
+          <SelectAnt.Option value={""}>Select Sort</SelectAnt.Option>
+          <SelectAnt.Option value={"asc"}>O'suvchi</SelectAnt.Option>
+          <SelectAnt.Option value={"desc"}>Kamayuvchi</SelectAnt.Option>
+        </SelectAnt>
+        <SelectAnt defaultValue={value} onChange={onChangeCategory}>
+          <SelectAnt.Option value={""}>Select Category</SelectAnt.Option>
+          {data.map((value, index) => (
+            <SelectAnt.Option key={index} value={value?.id}>
+              {value?.name}
+            </SelectAnt.Option>
+          ))}
+        </SelectAnt>
       </Section>
       <h2 className="subTitle">Price</h2>
       <Section>
-        <Input ref={minPriceRef} placeholder="Min price" />
-        <Input ref={maxPriceRef} placeholder="Max price" />
+        <Input
+          name="min_price"
+          onChange={onChange}
+          ref={minPriceRef}
+          placeholder="Min price"
+        />
+        <Input
+          name="max_price"
+          onChange={onChange}
+          ref={maxPriceRef}
+          placeholder="Max price"
+        />
       </Section>
     </MenuWrapper>
   );
