@@ -50,7 +50,7 @@ const Filter = () => {
     );
     d?.name && setValue(d?.name);
     query.get("category_id") && setValue("Select Category");
-  }, [location?.search, data]);
+  }, [query, location?.search, data]);
 
   const onChangeCategory = (category_id) => {
     navigate(`/properties${uzeReplace("category_id", category_id)}`);
