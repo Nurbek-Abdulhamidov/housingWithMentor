@@ -91,7 +91,7 @@ const Filter = () => {
           placeholder="Zip code"
         />
       </Section>
-      <h2 className="subTitle">Apartment info</h2>
+      <h2 className="subTitle">Apartment Info</h2>
       <Section>
         <Input
           name="room"
