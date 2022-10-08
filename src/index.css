@@ -63,3 +63,7 @@ body {
 .slick-next:before {
   color: black !important;
 }
+
+.slick-dots-bottom {
+  width: inherit !important;
+}

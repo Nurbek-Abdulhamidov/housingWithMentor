@@ -12,7 +12,12 @@ export const Container = styled.div`
   min-width: 330px;
   height: 429px;
   margin: 10px 0;
-  box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
+  border: 1px solid #e6e9ec;
+  margin: ${({ gap }) => gap && `0 ${gap}px`};
+  cursor: pointer;
+  :hover {
+    box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
+  }
 `;
 
 export const Img = styled.img`
